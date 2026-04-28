@@ -1,73 +1,50 @@
 # SlimeTinker-drake
 
-## Resumen Drake
-Addon de Slimefun basado en materiales, rasgos y herramientas estilo tinker.
+[![Rama](https://img.shields.io/badge/branch-1.21--latin-2ea44f)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/tree/1.21-latin)
+[![Licencia](https://img.shields.io/github/license/DrakesCraft-Labs/SlimeTinker-drake)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/blob/1.21-latin/LICENSE)
+[![Ultimo commit](https://img.shields.io/github/last-commit/DrakesCraft-Labs/SlimeTinker-drake/1.21-latin)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/commits/1.21-latin)
 
-## Que anade a Slimefun
-- Extiende contenido de Slimefun con mecanicas y bloques propios del addon.
-- Incluye ajustes de compatibilidad para stack Drake 1.21.
+## Descripción técnica
+Addon de materiales y rasgos tipo tinker para herramientas/armaduras dentro de Slimefun.
 
-## Estado
-- Extraido desde drakes-slimefun-labs (rama 1.21-latin).
-- Objetivo: desarrollo aislado por addon y releases independientes.
+## Qué añade a Slimefun
+- Profundiza personalización de equipamiento en Slimefun.
+- Introduce metajuego de builds por rasgos/materiales.
+- Habilita progresión modular de herramientas y armaduras.
 
----
+## Características principales
+- Sistema de materiales con traits por componente.
+- Combinaciones de partes para herramientas personalizadas.
+- Compatibilidad endurecida ante ítems opcionales faltantes.
 
-# SlimeTinker - Slimefun 6
+## Matriz de compatibilidad
+| Componente | Estado |
+|---|---|
+| Minecraft | 1.21.x |
+| Paper/Purpur | 1.21.x |
+| Slimefun Core Drake | 11.x (línea `1.21-latin`) |
+| Java | 21 |
 
-> [!NOTE]
-> ### *La Forja Definitiva para 1.21.1 / Java 21*
-> **SlimeTinker** recrea la legendaria experiencia de *Tinker's Construct* en Vanilla Minecraft, ahora totalmente portado y optimizado como parte del **Drake Framework**.
+## Instalación
+1. Descarga el `.jar` de Releases del repositorio.
+2. Copia el archivo en la carpeta `plugins/` del servidor.
+3. Asegura dependencias (`Slimefun`, `ProtocolLib` u otras según addon).
+4. Reinicia el servidor y revisa `logs/latest.log` para validar carga.
 
----
+## Build local
+```bash
+mvn -DskipTests clean package
+```
 
-## ⚒️ The Experience
-Crea herramientas y armaduras únicas combinando metales de Slimefun Core y otros addons. Cada parte influye en las estadísticas y habilidades de tu equipo, permitiendo una personalización táctica sin precedentes.
+Artefacto esperado:
+- `target/SlimeTinker*.jar`
 
-- **Fundición Avanzada**: Derrite metales Vanilla y aleaciones de Slimefun.
-- **Herramientas Modulares**: Combina cabezas, mangos y fijaciones para crear la herramienta perfecta.
-- **Rasgos Dinámicos**: Desde auto-smelt hasta minería 3x3, cada metal tiene su propia identidad.
-- **Nivelación y Evolución**: Tu equipo mejora con el uso, desbloqueando ranuras para modificadores.
+## Flujo de release
+1. Crear branch de cambios (`feature/*` o `fix/*`).
+2. Abrir PR hacia `1.21-latin` con plan de pruebas.
+3. Al mergear, crear tag/release y publicar jar compilado.
 
----
+Mantener changelog de materiales/traits y validar registros contra addons opcionales.
 
-## 🛠️ Especificaciones Técnicas
-
-| Requisito | Versión |
-|-----------|---------|
-| **Minecraft** | 1.21.1+ (Paper Recommended) |
-| **Java** | 21 |
-| **Slimefun** | 6.0-Drake+ |
-| **Dough-Core** | 1.3.1-DRAKE+ |
-
----
-
-## 📽️ Demostración
-[![Ver Video](https://res.cloudinary.com/marcomontalbano/image/upload/v1626509062/video_to_markdown/images/youtube--gAUoxj-h26s-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/gAUoxj-h26s)
-
----
-
-## 🚀 Instalación
-Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
-
-1. Instala el [Slimefun 6 Core](../../slimefun-core/Slimefun4-src) (árbol `sources/slimefun-core` de este monorepo).
-2. Descarga el JAR de SlimeTinker desde Releases.
-3. Copia a `/plugins/`.
-
----
-
-## 🤝 Créditos y Autoría
-- **Autor Original**: [Sefiraat](https://github.com/Sefiraat)
-- **Fork Drake:** [DrakesCraft-Labs](https://github.com/DrakesCraft-Labs)
-- **Agradecimientos Especiales**: Riley (InfinityLib), Martin, Boomer, GentlemanCheesy.
-
----
-*Powered by DrakesCraft-Labs - 2026*
-
-<!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
-<!-- DRAKES-STATUS:END -->
-
+## Relación con el monorepo
+Este repositorio se mantiene en paralelo con `drakes-slimefun-labs` para desarrollo aislado por addon y despliegues independientes.
