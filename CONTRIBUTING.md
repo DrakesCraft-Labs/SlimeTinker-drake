@@ -1,22 +1,21 @@
-# Contributing
+# Contributing Guide
 
-When contributing to this repository, please first discuss the change you wish to make via the Slimefun Addon Community Discord server (https://discord.gg/J4KurMDCKU).
+## Flujo de trabajo
+1. Crea una rama desde `1.21-latin` (`feature/*`, `fix/*`, `chore/*`).
+2. Mantén commits atómicos y con mensaje claro.
+3. Abre Pull Request hacia `1.21-latin` usando la plantilla.
+4. Espera CI verde + review antes de merge.
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+## Estándares técnicos
+- Java 21
+- Compatibilidad Paper/Purpur 1.21.x
+- Evitar romper APIs públicas sin nota de migración
+- Incluir validación en `logs/latest.log` cuando aplique
 
-## Pull Request Process
+## Build local
+- Maven: `mvn -DskipTests clean package`
+- Gradle: `./gradlew build -x test` (o `./gradlew shadowJar`)
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
-   build.
-2. Ensure valid annotations and JavaDocs have been added to new, public, methods and code has been commented for clarify where appropriate.
-3. Increase the version numbers in the pon.xml file to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of one other developer, or if you 
-   do not have permission to do that, you may request the reviewer to merge it for you.
-
-<!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
-<!-- DRAKES-STATUS:END -->
+## Reportes
+- Bugs y propuestas por Issue Templates
+- Seguridad: usar `SECURITY.md`
