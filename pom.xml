@@ -188,11 +188,5 @@
             <scope>compile</scope>
         </dependency>
     
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>dough-core</artifactId>
-            <version>${dough.version}</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 </project>
