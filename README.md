@@ -1,63 +1,87 @@
-# SlimeTinker-drake
+# SlimeTinker Drake
 
-[![Rama](https://img.shields.io/badge/branch-1.21--latin-2ea44f)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/tree/1.21-latin)
-[![Licencia](https://img.shields.io/github/license/DrakesCraft-Labs/SlimeTinker-drake)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/blob/1.21-latin/LICENSE)
-[![Ultimo commit](https://img.shields.io/github/last-commit/DrakesCraft-Labs/SlimeTinker-drake/1.21-latin)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/commits/1.21-latin)
+<p>
+  <a href="https://github.com/DrakesCraft-Labs/SlimeTinker-drake/actions"><img src="https://img.shields.io/github/actions/workflow/status/DrakesCraft-Labs/SlimeTinker-drake/drake-ci.yml?branch=main&label=CI&style=flat-square" alt="CI"/></a>
+  <img src="https://img.shields.io/badge/Minecraft-1.21.11-6d28d9?style=flat-square" alt="Minecraft 1.21.11"/>
+  <img src="https://img.shields.io/badge/Java-21-f89820?style=flat-square" alt="Java 21"/>
+  <img src="https://img.shields.io/badge/Slimefun-Drake%2011-581c87?style=flat-square" alt="Slimefun Drake 11"/>
+</p>
 
-## Descripción técnica
-Addon de materiales y rasgos tipo tinker para herramientas y armaduras dentro de Slimefun. Esta edición se mantiene de forma independiente para el stack Drake de Minecraft 1.21.x y Java 21.
+SlimeTinker Drake amplía Slimefun con herramientas y armaduras construidas por
+partes, materiales y rasgos. Es la edición mantenida para DrakesCraft: conserva
+la experiencia tinker existente y moderniza el runtime sin convertir una
+actualización en una migración de inventarios.
 
-## Qué añade a Slimefun
-- Profundiza personalización de equipamiento en Slimefun.
-- Introduce metajuego de builds por rasgos/materiales.
-- Habilita progresión modular de herramientas y armaduras.
+## Runtime compatible
 
-## Características principales
-- Sistema de materiales con traits por componente.
-- Combinaciones de partes para herramientas personalizadas.
-- Compatibilidad endurecida ante ítems opcionales faltantes.
-
-## Matriz de compatibilidad
-| Componente | Estado |
+| Componente | Objetivo |
 |---|---|
-| Minecraft | 1.21.x |
-| Paper/Purpur | 1.21.x |
-| Slimefun Core Drake | 11.x (línea `1.21-latin`) |
-| Java | 21 |
+| Minecraft / Paper / Purpur | **1.21.11** |
+| Java | **21** |
+| Slimefun | **Slimefun Drake 11** |
+| API de compilación | `paper-api 1.21.1-R0.1-SNAPSHOT` |
 
-## Operación
-SlimeTinker no descarga ni reemplaza JARs automáticamente. Los despliegues se compilan, revisan y se activan durante una ventana controlada.
+La dependencia Maven de Paper sigue la línea API `1.21.1`; el addon se compila
+contra Slimefun Drake 11 y está destinado al servidor 1.21.11. Esa diferencia
+de nomenclatura no implica que el addon requiera un runtime anterior.
 
-La configuración `plugins/SlimeTinker/config.yml` permite ajustar el coste de sus tareas recurrentes sin cambiar código:
+## Qué aporta
 
-| Ajuste | Valor inicial | Límite seguro | Propósito |
-|---|---:|---:|---|
-| `runtime.effect-tick-period` | 40 ticks | 20-200 | Validación de rasgos y armadura. |
-| `runtime.trail-tick-period` | 5 ticks | 1-100 | Frecuencia de estelas cosméticas. |
-| `runtime.trail-particles-per-player` | 11 | 0-24 | Partículas máximas por jugador y ciclo. |
+| Sistema | Función |
+|---|---|
+| Materiales y traits | Cada componente puede aportar propiedades que definen el resultado final. |
+| Partes y moldes | Cabezas, mangos, placas, herramientas y armaduras se fabrican de forma modular. |
+| Estaciones | Tool Table, Armour Table, Modification Station, Repair Bench, Smeltery y Workbench. |
+| Integraciones | Materiales para Slimefun y addons compatibles cuando están instalados. |
+| Progresión | Modificaciones, reparaciones, fundición, aleaciones y builds especializados. |
 
-Los valores fuera de rango se rechazan al iniciar y se reemplazan por el valor inicial. Para aplicar cambios de configuración, reinicia el servidor en una ventana programada.
+## Trabajo Drake
 
-## Instalación
-1. Descarga el `.jar` de Releases del repositorio.
-2. Copia el archivo en la carpeta `plugins/` del servidor.
-3. Asegura dependencias (`Slimefun`, `ProtocolLib` u otras según addon).
-4. Reinicia el servidor y revisa `logs/latest.log` para validar carga.
+- Repositorio independiente, build reproducible y release identificable `1.2.1-Drake`.
+- Migración de imports al stack Dough/Slimefun relocalizado de Drake.
+- Retiro del autoactualizador heredado: no hay descargas de JAR en caliente.
+- Corrección de iteración de estelas y de efectos Paper en transición de API.
+- Límites configurables para tareas periódicas de rasgos y partículas, evitando trabajo ilimitado por jugador.
+- Compatibilidad defensiva cuando faltan ítems o integraciones opcionales.
 
-## Build local
-```bash
-mvn -DskipTests clean package
+## Rendimiento y configuración
+
+`plugins/SlimeTinker/config.yml` permite regular el trabajo recurrente sin
+cambiar código:
+
+| Ajuste | Default | Rango validado |
+|---|---:|---:|
+| `runtime.effect-tick-period` | 40 ticks | 20-200 |
+| `runtime.trail-tick-period` | 5 ticks | 1-100 |
+| `runtime.trail-particles-per-player` | 11 | 0-24 |
+
+Los valores inválidos se sustituyen por defaults seguros durante el arranque.
+Aplica los cambios en una ventana de reinicio programada.
+
+## Compatibilidad de datos y actualización
+
+SlimeTinker mantiene sus IDs, formato de `traits.yml`, materiales, partes y
+claves PDC existentes. Antes de actualizar, respalda:
+
+```text
+plugins/SlimeTinker v1.2.DEV.jar
+plugins/SlimeTinker/
 ```
 
-Artefacto esperado:
-- `target/SlimeTinker*.jar`
+Instala un único JAR de SlimeTinker, conserva el anterior como rollback y,
+después del reinicio, valida una herramienta legacy con trait y una estela antes
+de anunciar el cambio.
 
-## Flujo de release
-1. Crear branch de cambios (`feature/*` o `fix/*`).
-2. Abrir PR hacia `1.21-latin` con plan de pruebas.
-3. Al mergear, crear tag/release y publicar jar compilado.
+## Build
 
-Mantener changelog de materiales/traits y validar registros contra addons opcionales.
+```bash
+mvn -B -ntp clean verify
+```
 
-## Relación con el monorepo
-Este repositorio se mantiene en paralelo con `drakes-slimefun-labs` para desarrollo aislado por addon y despliegues independientes.
+Artefacto: `target/SlimeTinker v1.2.1-Drake.jar`.
+
+## Procedencia
+
+Este repositorio conserva el historial del módulo extraído del monorepo
+DrakesCraft. El trabajo Drake se limita a compatibilidad, estabilidad,
+observabilidad operativa y mantenimiento sostenible del addon.
