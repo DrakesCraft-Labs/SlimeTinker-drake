@@ -1,7 +1,7 @@
 # SlimeTinker Drake
 
 <p>
-  <a href="https://github.com/DrakesCraft-Labs/SlimeTinker-drake/actions"><img src="https://img.shields.io/github/actions/workflow/status/DrakesCraft-Labs/SlimeTinker-drake/drake-ci.yml?branch=main&label=CI&style=flat-square" alt="CI"/></a>
+  <a href="https://github.com/DrakesCraft-Labs/SlimeTinker-drake/actions"><img src="https://img.shields.io/github/actions/workflow/status/DrakesCraft-Labs/SlimeTinker-drake/drake-ci.yml?branch=1.21-latin&label=CI&style=flat-square" alt="CI"/></a>
   <img src="https://img.shields.io/badge/Minecraft-1.21.11-6d28d9?style=flat-square" alt="Minecraft 1.21.11"/>
   <img src="https://img.shields.io/badge/Java-21-f89820?style=flat-square" alt="Java 21"/>
   <img src="https://img.shields.io/badge/Slimefun-Drake%2011-581c87?style=flat-square" alt="Slimefun Drake 11"/>
