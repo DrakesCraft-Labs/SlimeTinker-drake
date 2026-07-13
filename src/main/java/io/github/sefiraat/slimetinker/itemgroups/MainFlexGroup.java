@@ -104,9 +104,9 @@ public class MainFlexGroup extends FlexItemGroup {
         // Docs
         menu.replaceExistingItem(DOCS, DOCS_ITEM_STACK);
         menu.addMenuClickHandler(DOCS, (player1, i1, itemStack1, clickAction) -> {
-            final TextComponent link = new TextComponent("To access the documentation Wiki, please click here");
+            final TextComponent link = new TextComponent("Abrir documentación y soporte de SlimeTinker Drake");
             link.setColor(ChatColor.YELLOW);
-            link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://sefiraat.dev/"));
+            link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/DrakesCraft-Labs/SlimeTinker-drake"));
             player.spigot().sendMessage(link);
             return false;
         });

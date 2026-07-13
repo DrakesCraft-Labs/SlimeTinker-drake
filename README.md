@@ -5,7 +5,7 @@
 [![Ultimo commit](https://img.shields.io/github/last-commit/DrakesCraft-Labs/SlimeTinker-drake/1.21-latin)](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/commits/1.21-latin)
 
 ## Descripción técnica
-Addon de materiales y rasgos tipo tinker para herramientas/armaduras dentro de Slimefun.
+Addon de materiales y rasgos tipo tinker para herramientas y armaduras dentro de Slimefun. Esta edición se mantiene de forma independiente para el stack Drake de Minecraft 1.21.x y Java 21.
 
 ## Qué añade a Slimefun
 - Profundiza personalización de equipamiento en Slimefun.
@@ -24,6 +24,19 @@ Addon de materiales y rasgos tipo tinker para herramientas/armaduras dentro de S
 | Paper/Purpur | 1.21.x |
 | Slimefun Core Drake | 11.x (línea `1.21-latin`) |
 | Java | 21 |
+
+## Operación
+SlimeTinker no descarga ni reemplaza JARs automáticamente. Los despliegues se compilan, revisan y se activan durante una ventana controlada.
+
+La configuración `plugins/SlimeTinker/config.yml` permite ajustar el coste de sus tareas recurrentes sin cambiar código:
+
+| Ajuste | Valor inicial | Límite seguro | Propósito |
+|---|---:|---:|---|
+| `runtime.effect-tick-period` | 40 ticks | 20-200 | Validación de rasgos y armadura. |
+| `runtime.trail-tick-period` | 5 ticks | 1-100 | Frecuencia de estelas cosméticas. |
+| `runtime.trail-particles-per-player` | 11 | 0-24 | Partículas máximas por jugador y ciclo. |
+
+Los valores fuera de rango se rechazan al iniciar y se reemplazan por el valor inicial. Para aplicar cambios de configuración, reinicia el servidor en una ventana programada.
 
 ## Instalación
 1. Descarga el `.jar` de Releases del repositorio.

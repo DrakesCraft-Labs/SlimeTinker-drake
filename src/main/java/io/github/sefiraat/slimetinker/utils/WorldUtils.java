@@ -2,6 +2,7 @@ package io.github.sefiraat.slimetinker.utils;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -32,6 +33,16 @@ public final class WorldUtils {
 
     public static void dropItem(@Nonnull World w, Location l, ItemStack i) {
         w.dropItemNaturally(l, i);
+    }
+
+    /**
+     * Plays a lightweight, current Paper API visual at a teleport origin.
+     */
+    public static void playTeleportEffect(@Nonnull Location location) {
+        World world = location.getWorld();
+        if (world != null) {
+            world.spawnParticle(Particle.PORTAL, location, 10, 0.2, 0.2, 0.2, 0.1);
+        }
     }
 
     @Nonnull

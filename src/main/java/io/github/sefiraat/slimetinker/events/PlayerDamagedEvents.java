@@ -12,7 +12,6 @@ import io.github.sefiraat.slimetinker.utils.ThemeUtils;
 import io.github.sefiraat.slimetinker.utils.WorldUtils;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Color;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -241,7 +240,7 @@ public final class PlayerDamagedEvents {
             Location location = p.getLocation().clone().add(rndX, rndY, rndZ);
             if (p.getWorld().getBlockAt(location).getType() == Material.AIR) {
                 p.teleport(location);
-                p.getWorld().playEffect(friend.getPlayer().getLocation(), Effect.ENDEREYE_LAUNCH, 10);
+                WorldUtils.playTeleportEffect(friend.getPlayer().getLocation());
             }
         }
     }

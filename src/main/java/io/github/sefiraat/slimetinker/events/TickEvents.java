@@ -16,7 +16,6 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Color;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -275,7 +274,7 @@ public final class TickEvents {
         for (Entity entity : friend.getPlayer().getNearbyEntities(10, 10, 10)) {
             if (entity instanceof LivingEntity) {
                 LivingEntity l = (LivingEntity) entity;
-                l.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, SlimeTinker.RUNNABLE_TICK_RATE + 5, 0));
+                l.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, SlimeTinker.getInstance().getEffectTickPeriod() + 5, 0));
             }
         }
     }
@@ -318,7 +317,7 @@ public final class TickEvents {
                         Location location = l.getLocation().clone().add(rndX, rndY, rndZ);
                         if (entity.getWorld().getBlockAt(location).getType() == Material.AIR) {
                             entity.teleport(location);
-                            entity.getWorld().playEffect(friend.getPlayer().getLocation(), Effect.ENDEREYE_LAUNCH, 10);
+                            WorldUtils.playTeleportEffect(friend.getPlayer().getLocation());
                         }
                         break;
                     case 4:
@@ -778,7 +777,7 @@ public final class TickEvents {
     }
 
     public static void gambesonRubber(EventFriend friend) {
-        friend.getPlayer().setFireTicks(SlimeTinker.RUNNABLE_TICK_RATE + 5);
+        friend.getPlayer().setFireTicks(SlimeTinker.getInstance().getEffectTickPeriod() + 5);
     }
 
     public static void plateBoomerite(EventFriend friend) {

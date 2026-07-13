@@ -12,6 +12,7 @@ import io.github.sefiraat.slimetinker.utils.GeneralUtils;
 import io.github.sefiraat.slimetinker.utils.ItemUtils;
 import io.github.sefiraat.slimetinker.utils.Keys;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;
+import io.github.sefiraat.slimetinker.utils.WorldUtils;
 import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Rechargeable;
@@ -19,7 +20,6 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -116,7 +116,7 @@ public final class InteractionEvents {
                 && Slimefun.getProtectionManager().hasPermission(p, location, Interaction.PLACE_BLOCK)
             ) {
                 p.teleport(location);
-                p.getWorld().playEffect(friend.getPlayer().getLocation(), Effect.ENDEREYE_LAUNCH, 10);
+                WorldUtils.playTeleportEffect(friend.getPlayer().getLocation());
                 ItemUtils.setCooldown(i, "NOCLIP", 300000);
             } else {
                 p.sendMessage(ThemeUtils.WARNING + "Couldn't teleport! Try again.");

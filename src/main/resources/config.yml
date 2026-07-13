@@ -1,1 +1,8 @@
-auto-update: true
+# The Drake edition does not self-update from upstream. Deployments are reviewed and staged.
+runtime:
+  # Trait and armour validation cadence in ticks. Valid range: 20-200.
+  effect-tick-period: 40
+  # Cosmetic trail cadence in ticks. Valid range: 1-100.
+  trail-tick-period: 5
+  # Maximum particles emitted by an active trail per cycle. Valid range: 0-24.
+  trail-particles-per-player: 11

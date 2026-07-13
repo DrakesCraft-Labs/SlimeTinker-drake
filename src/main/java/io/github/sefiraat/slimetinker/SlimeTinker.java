@@ -23,14 +23,13 @@ import io.github.sefiraat.slimetinker.managers.MemoryManager;
 import io.github.sefiraat.slimetinker.managers.TraitManager;
 import io.github.sefiraat.slimetinker.runnables.RunnableManager;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
-
-import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
 
-    public static final int RUNNABLE_TICK_RATE = 40;
+    private static final int DEFAULT_EFFECT_TICK_PERIOD = 40;
+    private static final int DEFAULT_TRAIL_TICK_PERIOD = 5;
+    private static final int DEFAULT_TRAIL_PARTICLES_PER_PLAYER = 11;
 
     private static SlimeTinker instance;
 
@@ -55,9 +54,13 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
+        saveDefaultConfig();
+        // Merge new safe defaults into existing installations without replacing local tuning.
+        getConfig().options().copyDefaults(true);
+        saveConfig();
 
         getLogger().info("########################################");
-        getLogger().info("   Slime Tinker - Created by Sefiraat   ");
+        getLogger().info(" SlimeTinker - Drake maintained edition ");
         getLogger().info("########################################");
 
         ItemGroups.set(this);
@@ -77,9 +80,8 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
 
         this.listenerManager = new ListenerManager(this, this.getServer().getPluginManager());
 
-        if (getConfig().getBoolean("auto-update") && getDescription().getVersion().startsWith("Dev")) {
-            new BlobBuildUpdater(this, getFile(), "SlimeTinker", "Dev").start();
-        }
+        getLogger().info("Runtime: effects every " + getEffectTickPeriod() + "t, trails every "
+            + getTrailTickPeriod() + "t (max " + getTrailParticlesPerPlayer() + " particles/player).");
     }
 
     @Override
@@ -131,5 +133,35 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
 
     public static SlimeTinker getInstance() {
         return instance;
+    }
+
+    /**
+     * Returns a bounded cadence for trait effects so an invalid config cannot create a hot loop.
+     */
+    public int getEffectTickPeriod() {
+        return boundedConfigValue("runtime.effect-tick-period", DEFAULT_EFFECT_TICK_PERIOD, 20, 200);
+    }
+
+    /**
+     * Returns a bounded cadence for cosmetic trails.
+     */
+    public int getTrailTickPeriod() {
+        return boundedConfigValue("runtime.trail-tick-period", DEFAULT_TRAIL_TICK_PERIOD, 1, 100);
+    }
+
+    /**
+     * Caps cosmetic particles per player to keep the scheduler predictable under load.
+     */
+    public int getTrailParticlesPerPlayer() {
+        return boundedConfigValue("runtime.trail-particles-per-player", DEFAULT_TRAIL_PARTICLES_PER_PLAYER, 0, 24);
+    }
+
+    private int boundedConfigValue(String path, int fallback, int minimum, int maximum) {
+        int value = getConfig().getInt(path, fallback);
+        if (value < minimum || value > maximum) {
+            getLogger().warning("Invalid value for " + path + ": " + value + ". Using " + fallback + ".");
+            return fallback;
+        }
+        return value;
     }
 }

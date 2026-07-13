@@ -7,12 +7,12 @@ import io.github.sefiraat.slimetinker.utils.GeneralUtils;
 import io.github.sefiraat.slimetinker.utils.ItemUtils;
 import io.github.sefiraat.slimetinker.utils.Keys;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;
+import io.github.sefiraat.slimetinker.utils.WorldUtils;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -66,7 +66,7 @@ public final class EntityDamageEvents {
             Location location = entity.getLocation().clone().add(rndX, rndY, rndZ);
             if (entity.getWorld().getBlockAt(location).getType() == Material.AIR) {
                 entity.teleport(location);
-                entity.getWorld().playEffect(friend.getPlayer().getLocation(), Effect.ENDEREYE_LAUNCH, 10);
+                WorldUtils.playTeleportEffect(friend.getPlayer().getLocation());
             }
         }
     }

@@ -32,7 +32,7 @@ public final class EventChannels {
                 health = p.getHealth();
             }
             PotionEffectType potionEffectType = entry.getKey();
-            int tickDuration = SlimeTinker.RUNNABLE_TICK_RATE + getBonusTicks(potionEffectType);
+            int tickDuration = SlimeTinker.getInstance().getEffectTickPeriod() + getBonusTicks(potionEffectType);
             int amplifier = entry.getValue() - 1;
             friend.getPlayer().addPotionEffect(new PotionEffect(potionEffectType, tickDuration, amplifier, false, false, true));
             if (resetHealth) {

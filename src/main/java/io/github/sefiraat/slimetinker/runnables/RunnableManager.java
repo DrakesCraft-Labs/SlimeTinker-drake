@@ -13,13 +13,13 @@ public class RunnableManager {
         final SlimeTinker plugin = SlimeTinker.getInstance();
 
         this.effectTick = new EffectTick();
-        effectTick.runTaskTimer(plugin, 0, SlimeTinker.RUNNABLE_TICK_RATE);
+        effectTick.runTaskTimer(plugin, 0, plugin.getEffectTickPeriod());
 
         this.trailTick = new TrailTick();
-        trailTick.runTaskTimer(plugin, 0, 5);
+        trailTick.runTaskTimer(plugin, 0, plugin.getTrailTickPeriod());
 
         this.armourRemove = new ArmourRemove();
-        armourRemove.runTaskTimer(plugin, 0, SlimeTinker.RUNNABLE_TICK_RATE);
+        armourRemove.runTaskTimer(plugin, 0, plugin.getEffectTickPeriod());
 
         this.firstTick = new FirstTick();
         firstTick.runTaskLater(plugin, 1);

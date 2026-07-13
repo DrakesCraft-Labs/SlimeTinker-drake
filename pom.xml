@@ -4,25 +4,18 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.github.drakescraft_labs</groupId>
-        <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
-        <relativePath>../../../pom.xml</relativePath>
-    </parent>
-
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>SlimeTinker-drake</artifactId>
     <version>1.2.DEV</version>
 
     <name>SlimeTinker</name>
     <description>Slimefun4 Addon SlimeTinker</description>
-    <url>https://github.com/Sefiraat/SlimeTinker</url>
+    <url>https://github.com/DrakesCraft-Labs/SlimeTinker-drake</url>
 
     <licenses>
         <license>
             <name>GPL-3.0 license</name>
-            <url>https://github.com/Sefiraat/SlimeTinker/blob/master/LICENSE</url>
+            <url>https://github.com/DrakesCraft-Labs/SlimeTinker-drake/blob/1.21-latin/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -31,14 +24,19 @@
         <developer>
             <name>Sefiraat</name>
             <organization>Sefiraat</organization>
-            <organizationUrl>http://www.sefiraat.dev</organizationUrl>
+            <organizationUrl>https://github.com/Sefiraat</organizationUrl>
+        </developer>
+        <developer>
+            <name>DrakesCraft Labs</name>
+            <organization>DrakesCraft Labs</organization>
+            <organizationUrl>https://github.com/DrakesCraft-Labs</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/sefiraat/slimetinker.git</connection>
-        <developerConnection>scm:git:ssh://github.com:sefiraat/slimetinker.git</developerConnection>
-        <url>https://github.com/sefiraat/SlimeTinker/tree/master</url>
+        <connection>scm:git:git://github.com/DrakesCraft-Labs/SlimeTinker-drake.git</connection>
+        <developerConnection>scm:git:ssh://github.com:DrakesCraft-Labs/SlimeTinker-drake.git</developerConnection>
+        <url>https://github.com/DrakesCraft-Labs/SlimeTinker-drake/tree/1.21-latin</url>
     </scm>
 
     <properties>
@@ -47,6 +45,10 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.number>MODIFIED</project.build.number>
+        <paper.version>1.21.1-R0.1-SNAPSHOT</paper.version>
+        <slimefun.drake.version>11.0-Drake-1.21.1-SNAPSHOT</slimefun.drake.version>
+        <infinitylib.version>1.3.11-DRAKE-SNAPSHOT</infinitylib.version>
+        <acf.version>0.5.1-SNAPSHOT</acf.version>
     </properties>
 
     <repositories>
@@ -139,13 +141,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>drakes-labs-autoupdate</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
+            <version>${paper.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -185,6 +183,7 @@
         <dependency>
             <groupId>co.aikar</groupId>
             <artifactId>acf-paper</artifactId>
+            <version>${acf.version}</version>
             <scope>compile</scope>
         </dependency>
     
