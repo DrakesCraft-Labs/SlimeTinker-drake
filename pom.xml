@@ -101,10 +101,6 @@
                             <shadedPattern>io.github.sefiraat.slimetinker.infinitylib</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.sefiraat.slimetinker.bstats</shadedPattern>
-                        </relocation>
-                        <relocation>
                             <pattern>co.aikar.commands</pattern>
                             <shadedPattern>io.github.sefiraat.slimetinker.acf</shadedPattern>
                         </relocation>
@@ -156,12 +152,6 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>infinitylib-drake</artifactId>
             <version>${infinitylib.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-            <version>3.2.1</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
