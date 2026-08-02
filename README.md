@@ -31,6 +31,13 @@
 mvn clean package
 ```
 
+## 📚 Soporte DrakesCraft
+
+Este fork se documenta y mantiene desde este repositorio. Reporta problemas con
+la versión del JAR, el ítem o máquina involucrada, mundo, coordenadas y pasos
+para reproducirlos en [Issues](https://github.com/DrakesCraft-Labs/SlimeTinker-drake/issues).
+Se conservan los avisos GPL y de autoría original requeridos.
+
 ---
 
 <div align="center">
