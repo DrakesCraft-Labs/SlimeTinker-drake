@@ -17,6 +17,9 @@
   <rect width="512" height="512" rx="96" fill="url(#halo)"/>
   <rect x="4" y="4" width="504" height="504" rx="92" fill="none" stroke="url(#acG)" stroke-width="6" opacity="0.55"/>
   <g transform="translate(256,248) scale(2.6)">
-<path d="M-20,18 L-4,-14 L14,-14 L20,18 Z" fill="none" stroke="url(#acG)" stroke-width="4"/><line x1="-10" y1="2" x2="10" y2="2" stroke="#BEF264" stroke-width="3.5"/><circle cx="0" cy="-6" r="4" fill="#84CC16"/>
+
+    <path d="M-24,20 L-4,0 L4,8 L-16,28 Z" fill="none" stroke="url(#acG)" stroke-width="4"/>
+    <path d="M2,-6 L22,-26 L30,-18 L10,2 Z" fill="#84CC16" opacity="0.75"/>
+    <circle cx="-2" cy="2" r="4" fill="#BEF264"/>
   </g>
 </svg>
