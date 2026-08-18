@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/DrakesCraft-Labs/SlimeTinker-drake/1.21-latin/banner.svg" alt="SlimeTinker-drake Banner" width="920" />
+  <img src="https://raw.githubusercontent.com/DrakesCraft-Labs/SlimeTinker-drake/main/banner.svg" alt="SlimeTinker-drake Banner" width="920" />
 
 # 🧪 SlimeTinker-Drake
 
