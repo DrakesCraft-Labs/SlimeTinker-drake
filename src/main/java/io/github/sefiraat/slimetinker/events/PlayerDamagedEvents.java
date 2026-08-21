@@ -114,7 +114,7 @@ public final class PlayerDamagedEvents {
     }
 
     public static void bindCarbonMesh(EventFriend friend) {
-        friend.setDamageMod(friend.getDamageMod() - 0.33);
+        // Nimble disabled
     }
 
     public static void headIridium(EventFriend friend) {

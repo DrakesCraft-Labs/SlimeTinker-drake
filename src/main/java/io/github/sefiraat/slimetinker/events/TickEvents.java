@@ -373,7 +373,7 @@ public final class TickEvents {
     }
 
     public static void bindCarbonMesh(EventFriend friend) {
-        increaseEffect(PotionEffectType.SPEED, friend.getPotionEffects());
+        // Nimble disabled
     }
 
     public static void gambesonTwistingWines(EventFriend friend) {

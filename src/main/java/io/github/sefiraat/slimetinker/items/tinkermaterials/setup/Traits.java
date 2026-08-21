@@ -2203,12 +2203,10 @@ public final class Traits {
     public static final MaterialTrait LITE_CARBON_MESH_BINDING = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("Nimble")
+        .setTraitName("Inert Mesh")
         .setLore(
-            "Speed 1. Take 33% less damage"
-        )
-        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::bindCarbonMesh)
-        .addConsumer(TraitEventType.TICK, TickEvents::bindCarbonMesh);
+            "Does nothing"
+        );
 
     public static final MaterialTrait LITE_CARBON_MESH_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
