@@ -2780,4 +2780,205 @@ public final class Traits {
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::linksUltimaninium);
 
     // endregion
+
+    // region Supreme
+
+    // Aurum
+    public static final MaterialTrait SUPREME_AURUM_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Prosperity")
+        .setLore(
+            "+50% Tool EXP and +50% Player EXP.",
+            "Chance to drop bonus raw gold when mining."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headAurum)
+        .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headAurum);
+
+    public static final MaterialTrait SUPREME_AURUM_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Golden Touch")
+        .setLore(
+            "Chance to gain Absorption shields when hitting enemies."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodAurum);
+
+    public static final MaterialTrait SUPREME_AURUM_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Gilded Ward")
+        .setLore(
+            "25% chance to convert incoming damage into",
+            "Absorption and Saturation."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateAurum);
+
+    public static final MaterialTrait SUPREME_AURUM_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Affluence")
+        .setLore(
+            "+15% bonus Player EXP when damaged."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksAurum);
+
+    // Adamantium
+    public static final MaterialTrait SUPREME_ADAMANTIUM_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Adamant Will")
+        .setLore(
+            "+75% Weapon Damage.",
+            "50% chance to ignore durability damage."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headAdamantium)
+        .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headAdamantium);
+
+    public static final MaterialTrait SUPREME_ADAMANTIUM_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Unshakeable")
+        .setLore(
+            "Grants reinforced grip and steady recoil control."
+        );
+
+    public static final MaterialTrait SUPREME_ADAMANTIUM_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Indomitable Shell")
+        .setLore(
+            "Reduces all incoming damage by 25%."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateAdamantium);
+
+    public static final MaterialTrait SUPREME_ADAMANTIUM_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Juggernaut")
+        .setLore(
+            "Grants temporary Resistance when taking damage."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksAdamantium);
+
+    // Thornium
+    public static final MaterialTrait SUPREME_THORNIUM_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Static Discharge")
+        .setLore(
+            "Strikes targets with electrical shockwaves,",
+            "dealing 4 true damage on impact."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headThornium);
+
+    public static final MaterialTrait SUPREME_THORNIUM_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Spike Array")
+        .setLore(
+            "Inflicts withering toxin on struck foes."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodThornium);
+
+    public static final MaterialTrait SUPREME_THORNIUM_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Retribution Field")
+        .setLore(
+            "Reflects 35% of all melee damage back at attackers."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateThornium);
+
+    public static final MaterialTrait SUPREME_THORNIUM_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Reactive Surge")
+        .setLore(
+            "Grants brief Speed and Strength bursts when hurt."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksThornium);
+
+    // Supreme
+    public static final MaterialTrait SUPREME_SUPREME_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Overdrive")
+        .setLore(
+            "Unbreakable. +150% Damage and +150% Tool EXP.",
+            "Shockwaves damage nearby monsters."
+        )
+        .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSupreme)
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSupreme)
+        .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headSupreme);
+
+    public static final MaterialTrait SUPREME_SUPREME_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Singular Radiance")
+        .setLore(
+            "Bestows Regeneration and Haste on striking enemies."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodSupreme);
+
+    public static final MaterialTrait SUPREME_SUPREME_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Aegis of the Sovereign")
+        .setLore(
+            "Reduces incoming damage by 40% and restores 1 heart."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSupreme);
+
+    public static final MaterialTrait SUPREME_SUPREME_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Transcendental Reflection")
+        .setLore(
+            "Reflects 25% of incoming damage back to the attacker."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksSupreme);
+
+    // Cosmic Hybrid Alloy
+    public static final MaterialTrait COSMIC_ALLOY_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Celestial Singularity")
+        .setLore(
+            "Unbreakable. +300% Damage, +200% Tool EXP.",
+            "Cosmic resonance annihilates surrounding monsters."
+        )
+        .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headCosmic)
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headCosmic)
+        .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headCosmic);
+
+    public static final MaterialTrait COSMIC_ALLOY_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Cosmic Anchor")
+        .setLore(
+            "Regenerates health and speeds up attack cooldowns."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodSupreme);
+
+    public static final MaterialTrait COSMIC_ALLOY_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Event Horizon")
+        .setLore(
+            "Reduces damage taken by 50% and reflects 50% back",
+            "at the aggressor with a spatial vortex."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateCosmic);
+
+    public static final MaterialTrait COSMIC_ALLOY_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.SUPREME_NOTE)
+        .setTraitName("Omnipresence")
+        .setLore(
+            "Permanently grants Speed II and Strength II when damaged."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksCosmic);
+
+    // endregion
 }

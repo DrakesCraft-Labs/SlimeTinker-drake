@@ -18,6 +18,7 @@ public final class SupportedPluginsManager {
     public static final boolean LITEXPANSION;
     public static final boolean TRANSCENDENCE;
     public static final boolean NETWORKS;
+    public static final boolean SUPREME;
 
     public static Plugin TRANSCENDENCE_PLUGIN;
 
@@ -28,6 +29,7 @@ public final class SupportedPluginsManager {
     public static final String LITEXPANSION_NOTE = ThemeUtils.ADD_LITEXPANSION + "LiteXpansion";
     public static final String TRANSCENDENCE_NOTE = ThemeUtils.ADD_TRANSCENDENCE + "TranscEndence";
     public static final String NETWORKS_NOTE = ThemeUtils.ADD_NETWORKS + "Networks";
+    public static final String SUPREME_NOTE = ThemeUtils.ADD_SUPREME + "Supreme";
 
     static {
         PluginManager pluginManager = SlimeTinker.getInstance().getServer().getPluginManager();
@@ -37,6 +39,7 @@ public final class SupportedPluginsManager {
         LITEXPANSION = pluginManager.isPluginEnabled("LiteXpansion");
         TRANSCENDENCE = pluginManager.isPluginEnabled("TranscEndence");
         NETWORKS = pluginManager.isPluginEnabled("Networks");
+        SUPREME = pluginManager.isPluginEnabled("Supreme");
 
         if (TRANSCENDENCE) {
             TRANSCENDENCE_PLUGIN = pluginManager.getPlugin("TranscEndence");
@@ -65,5 +68,9 @@ public final class SupportedPluginsManager {
 
     public static boolean isNetworks() {
         return NETWORKS;
+    }
+
+    public static boolean isSupreme() {
+        return SUPREME;
     }
 }

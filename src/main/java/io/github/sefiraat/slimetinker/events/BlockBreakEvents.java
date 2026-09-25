@@ -301,4 +301,22 @@ public final class BlockBreakEvents {
     public static void binderLeather(EventFriend friend) {
         friend.incrementItemExpMod(0.5);
     }
+
+    public static void headAurum(EventFriend friend) {
+        friend.incrementItemExpMod(0.5);
+        friend.setPlayerExpMod(friend.getPlayerExpMod() + 0.5);
+        if (ThreadLocalRandom.current().nextInt(1, 10) == 1) {
+            friend.getAddDrops().add(new ItemStack(Material.RAW_GOLD, 1));
+        }
+    }
+
+    public static void headSupreme(EventFriend friend) {
+        friend.incrementItemExpMod(1.5);
+        friend.setPlayerExpMod(friend.getPlayerExpMod() + 1.0);
+    }
+
+    public static void headCosmic(EventFriend friend) {
+        friend.incrementItemExpMod(3.0);
+        friend.setPlayerExpMod(friend.getPlayerExpMod() + 2.0);
+    }
 }

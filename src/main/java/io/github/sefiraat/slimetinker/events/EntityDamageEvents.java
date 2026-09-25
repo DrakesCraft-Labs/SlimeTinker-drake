@@ -494,4 +494,57 @@ public final class EntityDamageEvents {
 
         }
     }
+
+    public static void headAurum(EventFriend friend) {
+        friend.setPlayerExpMod(friend.getPlayerExpMod() + 0.5);
+        friend.incrementItemExpMod(0.5);
+    }
+
+    public static void rodAurum(EventFriend friend) {
+        if (ThreadLocalRandom.current().nextInt(1, 5) == 1) {
+            friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 120, 0));
+        }
+    }
+
+    public static void headAdamantium(EventFriend friend) {
+        friend.setDamageMod(friend.getDamageMod() + 0.75);
+    }
+
+    public static void headThornium(EventFriend friend) {
+        if (friend.getDamagedEntity() instanceof LivingEntity le) {
+            le.getWorld().spawnParticle(Particle.CRIT, le.getLocation(), 15, 0.3, 0.5, 0.3, 0.2);
+            le.damage(4.0, friend.getPlayer());
+        }
+    }
+
+    public static void rodThornium(EventFriend friend) {
+        if (friend.getDamagedEntity() instanceof LivingEntity le) {
+            le.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 60, 1));
+        }
+    }
+
+    public static void headSupreme(EventFriend friend) {
+        friend.setDamageMod(friend.getDamageMod() + 1.5);
+        friend.incrementItemExpMod(1.0);
+        Location loc = friend.getDamagedEntity().getLocation();
+        for (Entity e : loc.getWorld().getNearbyEntities(loc, 4, 4, 4, n -> n instanceof Monster && !n.equals(friend.getDamagedEntity()))) {
+            ((Monster) e).damage(6.0, friend.getPlayer());
+        }
+    }
+
+    public static void rodSupreme(EventFriend friend) {
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 0));
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 100, 0));
+    }
+
+    public static void headCosmic(EventFriend friend) {
+        friend.setDamageMod(friend.getDamageMod() + 3.0);
+        friend.incrementItemExpMod(2.0);
+        friend.setPlayerExpMod(friend.getPlayerExpMod() + 2.0);
+        Location loc = friend.getDamagedEntity().getLocation();
+        loc.getWorld().spawnParticle(Particle.PORTAL, loc, 30, 0.5, 0.5, 0.5, 0.5);
+        for (Entity e : loc.getWorld().getNearbyEntities(loc, 6, 6, 6, n -> n instanceof Monster && !n.equals(friend.getDamagedEntity()))) {
+            ((Monster) e).damage(12.0, friend.getPlayer());
+        }
+    }
 }

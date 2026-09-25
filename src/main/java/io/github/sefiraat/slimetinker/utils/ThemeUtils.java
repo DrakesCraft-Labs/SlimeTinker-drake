@@ -49,6 +49,7 @@ public final class ThemeUtils {
     public static final ChatColor ADD_LITEXPANSION = ChatColor.of("#8a8a8a");
     public static final ChatColor ADD_TRANSCENDENCE = ChatColor.of("#c242f5");
     public static final ChatColor ADD_NETWORKS = ChatColor.of("#05ad08");
+    public static final ChatColor ADD_SUPREME = ChatColor.of("#9b30bf");
     public static final ChatColor GUIDE = ChatColor.of("#444444");
 
     public static final String LORE_TYPE_CRAFT = ITEM_TYPEDESC + "Crafting Material";

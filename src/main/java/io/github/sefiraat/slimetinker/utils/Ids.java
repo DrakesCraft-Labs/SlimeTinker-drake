@@ -120,6 +120,13 @@ public final class Ids {
     public static final String REMOTININIUM = "REMOTININIUM";
     public static final String ULTIMANINIUM = "ULTIMANINIUM";
 
+    // Supreme
+    public static final String AURUM = "AURUM";
+    public static final String ADAMANTIUM = "ADAMANTIUM";
+    public static final String THORNIUM = "THORNIUM";
+    public static final String SUPREME = "SUPREME";
+    public static final String COSMIC_ALLOY = "COSMIC_ALLOY";
+
     // Other
     public static final String HEAD = "HEAD";
     public static final String BINDING = "BINDING";

@@ -711,4 +711,59 @@ public final class PlayerDamagedEvents {
             friend.setCancelEvent(true);
         }
     }
+
+    public static void plateAurum(EventFriend friend) {
+        if (ThreadLocalRandom.current().nextInt(1, 4) == 1) {
+            friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 160, 1));
+            friend.getPlayer().setSaturation(Math.min(20, friend.getPlayer().getSaturation() + 2));
+        }
+    }
+
+    public static void linksAurum(EventFriend friend) {
+        friend.setPlayerExpMod(friend.getPlayerExpMod() + 0.15);
+    }
+
+    public static void plateAdamantium(EventFriend friend) {
+        friend.setDamageMod(friend.getDamageMod() * 0.75);
+    }
+
+    public static void linksAdamantium(EventFriend friend) {
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 80, 0));
+    }
+
+    public static void plateThornium(EventFriend friend) {
+        if (friend.getDamagingEntity() instanceof LivingEntity le) {
+            le.damage(friend.getInitialDamage() * 0.35, friend.getPlayer());
+            le.getWorld().spawnParticle(Particle.SWEEP_ATTACK, le.getLocation(), 5, 0.2, 0.2, 0.2);
+        }
+    }
+
+    public static void linksThornium(EventFriend friend) {
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 80, 0));
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 80, 0));
+    }
+
+    public static void plateSupreme(EventFriend friend) {
+        friend.setDamageMod(friend.getDamageMod() * 0.60);
+        friend.getPlayer().setHealth(Math.min(friend.getPlayer().getHealth() + 2, friend.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()));
+    }
+
+    public static void linksSupreme(EventFriend friend) {
+        if (friend.getDamagingEntity() instanceof LivingEntity le) {
+            le.damage(friend.getInitialDamage() * 0.25, friend.getPlayer());
+        }
+    }
+
+    public static void plateCosmic(EventFriend friend) {
+        friend.setDamageMod(friend.getDamageMod() * 0.50);
+        if (friend.getDamagingEntity() instanceof LivingEntity le) {
+            le.damage(friend.getInitialDamage() * 0.50, friend.getPlayer());
+            le.getWorld().spawnParticle(Particle.REVERSE_PORTAL, le.getLocation(), 15, 0.3, 0.3, 0.3);
+        }
+    }
+
+    public static void linksCosmic(EventFriend friend) {
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1));
+        friend.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 100, 1));
+    }
 }

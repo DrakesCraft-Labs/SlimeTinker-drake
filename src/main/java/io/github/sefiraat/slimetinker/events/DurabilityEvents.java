@@ -103,4 +103,20 @@ public final class DurabilityEvents {
     public static void plateHardened(EventFriend friend) {
         friend.setCancelEvent(true);
     }
+
+    public static void headAdamantium(EventFriend friend) {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            friend.setCancelEvent(true);
+        }
+    }
+
+    public static void headSupreme(EventFriend friend) {
+        friend.setCancelEvent(true);
+        friend.setDurabilityMod(0);
+    }
+
+    public static void headCosmic(EventFriend friend) {
+        friend.setCancelEvent(true);
+        friend.setDurabilityMod(0);
+    }
 }
