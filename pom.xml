@@ -48,6 +48,7 @@
         <slimefun.version>RC-37</slimefun.version>
         <infinitylib.version>7e03c79</infinitylib.version>
         <acf.version>0.5.1-SNAPSHOT</acf.version>
+        <dough.version>1.2.0</dough.version>
     </properties>
 
     <repositories>
@@ -137,6 +138,12 @@
             <artifactId>Slimefun4</artifactId>
             <version>${slimefun.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.baked-libs</groupId>
+            <artifactId>dough-api</artifactId>
+            <version>${dough.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.mooy1</groupId>

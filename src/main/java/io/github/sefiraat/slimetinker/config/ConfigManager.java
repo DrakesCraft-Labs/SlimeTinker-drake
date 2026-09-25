@@ -1,7 +1,7 @@
 package io.github.sefiraat.slimetinker.config;
 
 import io.github.sefiraat.slimetinker.SlimeTinker;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
+import io.github.bakedlibs.dough.config.Config;
 
 import java.io.File;
 import java.io.IOException;
