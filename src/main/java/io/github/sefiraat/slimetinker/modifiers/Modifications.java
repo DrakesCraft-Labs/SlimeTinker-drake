@@ -1,6 +1,6 @@
 package io.github.sefiraat.slimetinker.modifiers;
 
-import dev.drake.infinitylib.common.StackUtils;
+import io.github.mooy1.infinitylib.common.StackUtils;
 import io.github.sefiraat.slimetinker.items.Materials;
 import io.github.sefiraat.slimetinker.utils.ItemUtils;
 import io.github.sefiraat.slimetinker.utils.Keys;

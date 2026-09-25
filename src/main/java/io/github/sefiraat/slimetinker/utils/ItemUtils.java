@@ -1,17 +1,17 @@
 package io.github.sefiraat.slimetinker.utils;
 
-import dev.drake.infinitylib.common.StackUtils;
+import io.github.mooy1.infinitylib.common.StackUtils;
 import io.github.sefiraat.slimetinker.SlimeTinker;
 import io.github.sefiraat.slimetinker.events.friend.TraitPartType;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterialManager;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.recipes.MoltenResult;
 import io.github.sefiraat.slimetinker.modifiers.Mod;
 import io.github.sefiraat.slimetinker.modifiers.Modifications;
-import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
