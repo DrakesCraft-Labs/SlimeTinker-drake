@@ -2,8 +2,6 @@ package io.github.sefiraat.slimetinker.utils;
 
 import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterialManager;
 import io.github.bakedlibs.dough.items.CustomItemStack;
-import io.github.bakedlibs.dough.skins.PlayerHead;
-import io.github.bakedlibs.dough.skins.PlayerSkin;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -89,7 +87,7 @@ public final class GUIItems {
     );
 
     public static final CustomItemStack MENU_PURGE = new CustomItemStack(
-        PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.BUTTON_PURGE)),
+        SkullTextures.head(SkullTextures.BUTTON_PURGE),
         ThemeUtils.GUI_HEAD + "Purge Metals",
         "",
         ThemeUtils.PASSIVE + "Purge unwanted metals from the tank.",
@@ -99,7 +97,7 @@ public final class GUIItems {
     );
 
     public static final CustomItemStack MENU_ALLOY = new CustomItemStack(
-        PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.BUTTON_ALLOY)),
+        SkullTextures.head(SkullTextures.BUTTON_ALLOY),
         ThemeUtils.GUI_HEAD + "Alloy Metals",
         "",
         ThemeUtils.PASSIVE + "Mixes up the metals in the tank to",
@@ -107,7 +105,7 @@ public final class GUIItems {
     );
 
     public static final CustomItemStack MENU_POUR = new CustomItemStack(
-        PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.BUCKET_ORANGE)),
+        SkullTextures.head(SkullTextures.BUCKET_ORANGE),
         ThemeUtils.GUI_HEAD + "Pour content",
         "",
         ThemeUtils.PASSIVE + "Pours the first metal into the",
@@ -164,17 +162,17 @@ public final class GUIItems {
     public static CustomItemStack menuLavaInfo(int fillPercent, int fillAmt, int fillMax) {
         ItemStack skull;
         if (fillPercent >= 95) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_LAVA_5));
+            skull = SkullTextures.head(SkullTextures.TANK_LAVA_5);
         } else if (fillPercent >= 75) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_LAVA_4));
+            skull = SkullTextures.head(SkullTextures.TANK_LAVA_4);
         } else if (fillPercent >= 50) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_LAVA_3));
+            skull = SkullTextures.head(SkullTextures.TANK_LAVA_3);
         } else if (fillPercent >= 25) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_LAVA_2));
+            skull = SkullTextures.head(SkullTextures.TANK_LAVA_2);
         } else if (fillPercent > 0) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_LAVA_1));
+            skull = SkullTextures.head(SkullTextures.TANK_LAVA_1);
         } else {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_EMPTY));
+            skull = SkullTextures.head(SkullTextures.TANK_EMPTY);
         }
         List<String> meta = new ArrayList<>();
         meta.add(ThemeUtils.GUI_HEAD + "Lava Tank");
@@ -190,17 +188,17 @@ public final class GUIItems {
     public static CustomItemStack menuMetalInfo(int fillPercent, int fillAmt, int fillMax, @Nullable Map<String, Integer> map) {
         ItemStack skull;
         if (fillPercent >= 95) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_METAL_5));
+            skull = SkullTextures.head(SkullTextures.TANK_METAL_5);
         } else if (fillPercent >= 75) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_METAL_4));
+            skull = SkullTextures.head(SkullTextures.TANK_METAL_4);
         } else if (fillPercent >= 50) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_METAL_3));
+            skull = SkullTextures.head(SkullTextures.TANK_METAL_3);
         } else if (fillPercent >= 25) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_METAL_2));
+            skull = SkullTextures.head(SkullTextures.TANK_METAL_2);
         } else if (fillPercent > 0) {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_METAL_1));
+            skull = SkullTextures.head(SkullTextures.TANK_METAL_1);
         } else {
-            skull = PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.TANK_EMPTY));
+            skull = SkullTextures.head(SkullTextures.TANK_EMPTY);
         }
         List<String> meta = new ArrayList<>();
         meta.add(ThemeUtils.GUI_HEAD + "Metals Tank");

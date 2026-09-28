@@ -1,7 +1,24 @@
 package io.github.sefiraat.slimetinker.utils;
 
+import java.net.URI;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
+
 @SuppressWarnings("SpellCheckingInspection")
 public final class SkullTextures {
+
+    private static final Pattern SKIN_URL = Pattern.compile("\\\"url\\\"\\s*:\\s*\\\"([^\\\"]+)\\\"");
 
     private SkullTextures() {
 
@@ -85,5 +102,36 @@ public final class SkullTextures {
     public static final String BUTTON_PURGE = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM1ZTRlMjZlYWZjMTFiNTJjMTE2NjhlMWQ2NjM0ZTdkMWQwZDIxYzQxMWNiMDg1ZjkzOTQyNjhlYjRjZGZiYSJ9fX0=";
 
     public static final String INFO = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY0MzlkMmUzMDZiMjI1NTE2YWE5YTZkMDA3YTdlNzVlZGQyZDUwMTVkMTEzYjQyZjQ0YmU2MmE1MTdlNTc0ZiJ9fX0=";
-}
 
+    /**
+     * Creates a textured menu icon using Paper's public profile API.
+     * This avoids Dough's legacy AuthLib subclass, which cannot load on 26.2.
+     */
+    public static ItemStack head(String encodedTexture) {
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD);
+        if (!(head.getItemMeta() instanceof SkullMeta meta)) {
+            return head;
+        }
+
+        try {
+            String textureJson = new String(Base64.getDecoder().decode(encodedTexture), StandardCharsets.UTF_8);
+            Matcher matcher = SKIN_URL.matcher(textureJson);
+            if (!matcher.find()) {
+                return head;
+            }
+
+            URL skinUrl = URI.create(matcher.group(1)).toURL();
+            UUID profileId = UUID.nameUUIDFromBytes(encodedTexture.getBytes(StandardCharsets.UTF_8));
+            PlayerProfile profile = Bukkit.createPlayerProfile(profileId);
+            PlayerTextures textures = profile.getTextures();
+            textures.setSkin(skinUrl);
+            profile.setTextures(textures);
+            meta.setOwnerProfile(profile);
+            head.setItemMeta(meta);
+        } catch (IllegalArgumentException | java.net.MalformedURLException ignored) {
+            // A malformed bundled icon must not prevent the addon from enabling.
+        }
+
+        return head;
+    }
+}
