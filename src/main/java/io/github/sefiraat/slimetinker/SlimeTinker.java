@@ -74,6 +74,9 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
 
         traitManager = new TraitManager();
         tinkerMaterialManager = new TinkerMaterialManager();
+        // Interoperabilidad con MultiverseTinker (Chagui68): reconoce sus metales.
+        // Reflexivo: si MultiverseTinker no esta, queda latente y SlimeTinker sigue solo.
+        cl.drakescraft.addon.bridge.MultiverseTinkerBridge.initialize(getLogger());
         runnableManager = new RunnableManager();
         dispatchManager = new DispatchManager();
         memoryManager = new MemoryManager();
